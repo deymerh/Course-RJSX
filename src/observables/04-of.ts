@@ -7,9 +7,9 @@ const obs$ = of([1, 2], { a: 1, b: 2 }, function () { }, true, Promise.resolve(t
 // El metodo of para crear un observable trabaja de forma sincrona
 
 console.log("Start Obs$");
-obs$.subscribe(
-  next => console.log("Next", next),
-  null,
-  () => console.log('Complete sequence')
-)
+obs$.subscribe({
+  next: (next) => console.log("Next", next),
+  error: null,
+  complete: () => console.log('Complete sequence')
+})
 console.log("End Obs$");
