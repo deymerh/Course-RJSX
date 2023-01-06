@@ -20,5 +20,7 @@ const mouseUp$ = fromEvent(document, 'mouseup');
 const interval$ = interval(); 
 
 mouseDown$.pipe(
+  //mergeMap emite el valor de la funcion de retorno que recibe y 
+  // mantiene todas las suscripciones al tiempo
   mergeMap(()=>interval$.pipe(takeUntil(mouseUp$)))
 ).subscribe(console.log);
