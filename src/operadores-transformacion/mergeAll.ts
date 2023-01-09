@@ -40,7 +40,8 @@ input$.pipe(
   debounceTime<KeyboardEvent>(1000),//Espera 500 milesimas de segundo para hacer la emision
   // pluck<KeyboardEvent, string>('target','value'),//extrae el ´value´ del ´target´
   map<KeyboardEvent, string>((event) => event.target['value']),
-  map<string, Observable<GithubUsersResponse>>((text) => ajax.getJSON(`https://api.github.com/search/users?q=${text}`)),//retorna una peticion ajax
+  map<string, Observable<GithubUsersResponse>>((text) => 
+    ajax.getJSON(`https://api.github.com/search/users?q=${text}`)),//retorna una peticion ajax
   mergeAll<Observable<GithubUsersResponse>>(),//une las emisiones de todos los observables suscritos
   map<GithubUsersResponse, GithubUser[]>((res)=>res.items),
   // catchError((err: AjaxError)=>{

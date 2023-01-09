@@ -4,7 +4,7 @@ const numeros$ = of(1,2,0,4,3,2,9,2,4,5,7,5,6,7,0,9,1);
 
 numeros$
 .pipe(
-  //distinct() emite valores que NUNCA se hayan emitidi previamente
+  //distinct() emite valores que NUNCA se hayan emitido previamente
   // y usa el === para no dejar pasar los valores que ya han sido emitidis
   // distinctUntilChanged() emite valores siempre y cuando LA EMISION ANTERIOR no sea la mismo
   distinctUntilChanged()

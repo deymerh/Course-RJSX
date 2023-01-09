@@ -12,4 +12,5 @@ const input$ = fromEvent<KeyboardEvent>(input, 'keyup');
 input$.pipe(
     debounceTime(2000),
     pluck('target', 'value'),
-    distinctUntilChanged()).subscribe(console.log);
+    distinctUntilChanged())
+.subscribe(console.log);
